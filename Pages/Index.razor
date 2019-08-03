@@ -7,11 +7,14 @@
 }
 else
 {
-    <div class="btn-group" role="group" aria-label="Day">
+    <div class="row justify-content-md-center">
         @for (int daysFromNow = 0; daysFromNow < 7; ++daysFromNow)
         {
             var day = DateTime.Now.AddDays(daysFromNow);
-            <button @onclick="@(async () => await SetDay(day))" type="button" class="@((day.Date == selectedDay.Date) ? "active" : "") btn btn-primary">@day.DayOfWeek</button>
+            <div class="col col-sm-2 col-md-auto">
+                <button @onclick="@(async () => await SetDay(day))" type="button" class="@((day.Date == selectedDay.Date) ? "active" : "") btn btn-primary">@day.DayOfWeek</button>
+            </div>
+            
         }
     </div>
 
